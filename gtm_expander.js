@@ -4,7 +4,7 @@ javascript: /* GTM - разворачивание тегов для быстро
     var div_cl = $('div.gtm-cloaked-ready'); div_cl.css('background-color','pink');
     var fb = 'https://www.facebook.com/LossevSergey', title = document.title;
 	var st = 'border-right: 1px dotted grey; padding-bottom: 1px; padding-top: 1px; height: 10px; line-height: 13px; margin: 1px; ';
-	var reduce_object=(obj)=>obj&&Object.entries(obj).reduce((sum,[k,v])=>sum+' '+k+'="'+v+'"','')||'';
+	var reduce_object = (obj) => obj&&Object.entries(obj).reduce((sum,[k,v])=>sum+' '+k+'="'+v+'"','')||'';
 	'table,tr,td,a,span,pre,textarea,col,colgroup,div'.split(',').forEach(tag=>{
 		String.prototype[tag]=function(obj){return'<'+tag+reduce_object(obj)+'>'+this+'</'+tag+'>';};
 	});
