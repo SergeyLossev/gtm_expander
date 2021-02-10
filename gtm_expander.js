@@ -1,6 +1,8 @@
 javascript: /* GTM - разворачивание тегов для быстрого просмотра (c) SergeyLossev */ 
 !function(){
-    var title = document.title;
+    document.body.style.backgroundColor='pink';
+    var div_cl = $('div.gtm-cloaked-ready'); div_cl.css('background-color','pink');
+    var fb = 'https://www.facebook.com/LossevSergey', title = document.title;
 	var st = 'border-right: 1px dotted grey; padding-bottom: 1px; padding-top: 1px; height: 10px; line-height: 13px; margin: 1px; ';
 	var reduce_object=(obj)=>obj&&Object.entries(obj).reduce((sum,[k,v])=>sum+' '+k+'="'+v+'"','')||'';
 	'table,tr,td,a,span,pre,textarea,col,colgroup,div'.split(',').forEach(tag=>{
@@ -10,7 +12,7 @@ javascript: /* GTM - разворачивание тегов для быстро
 	if (!$('div.card-title>div>.ser_exp').length)
 		$('div.card-title>div').html($('div.card-title>div')[0].innerHTML+ ' '
 		+ '[expanded by (c) SergeyLossev]'.a({
-			href  :'https://www.facebook.com/LossevSergey',
+			href  : fb,
 			class :'ser_exp',
 			target:'blank'
 		}));
@@ -66,7 +68,13 @@ javascript: /* GTM - разворачивание тегов для быстро
 				ahref.parentElement.appendChild(div);
 				div.outerHTML = div_outerHTML;
 			}
-            if (!count) document.title = title;
+            if (!count) {
+                document.title = title;
+                console.clear();
+                console.log('(c) '+fb);
+                document.body.style.backgroundColor='';
+                div_cl.css('background-color','');
+            }
 		};
 		xhr.send();
 	});
